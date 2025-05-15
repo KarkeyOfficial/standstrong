@@ -1,72 +1,37 @@
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.navbar nav a');
+  const navbar = document.querySelector('.navbar'); // Select the navbar element
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(otherLink => otherLink.classList.remove('active'));
+      this.classList.add('active');
     });
   });
-  
-  // Hover effect on cards for visual interactivity
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'scale(1.05)';
-      card.style.transition = 'transform 0.3s ease-in-out';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'scale(1)';
-    });
-  });
-  
-  // Back to top button for smooth navigation
-  const topButton = document.createElement('button');
-  topButton.innerText = '↑';
-  topButton.classList.add('top-btn');
-  document.body.appendChild(topButton);
-  
-  // Show button when scrolled down
+
+  // Add scroll event listener to the window
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      topButton.style.display = 'block';
+    // Check how far the user has scrolled
+    if (window.scrollY > 50) { // You can adjust the scroll distance (50px) as needed
+      navbar.style.backdropFilter = 'blur(10px)'; // Apply the blur effect
+      navbar.style.backgroundColor = 'rgba(255, 235, 59, 0.7)';  //Add a semi-transparent background so the blur is visible
     } else {
-      topButton.style.display = 'none';
+      navbar.style.backdropFilter = 'none'; // Remove the blur effect
+      navbar.style.backgroundColor = '#ffeb3b'; // Restore original background color
     }
   });
-  
-  // Scroll to top when clicked
-  topButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+link.addEventListener('click', function() {
+      navLinks.forEach(otherLink => otherLink.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
-  
-  // Modal functionality
-  const modal = document.querySelector('.modal');
-  const openModalBtn = document.querySelector('#open-modal');
-  const closeModalBtn = document.querySelector('#close-modal');
-  
-  openModalBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-  });
-  
-  closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-  
-  // Close modal when clicking outside
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.style.backdropFilter = 'blur(10px)';
+      navbar.style.backgroundColor = 'rgba(255, 235, 59, 0.7)';
+    } else {
+      navbar.style.backdropFilter = 'none';
+      navbar.style.backgroundColor = '#ffeb3b';
     }
   });
-  
-  // Load more content dynamically
-  const loadMoreBtn = document.querySelector('#load-more');
-  loadMoreBtn.addEventListener('click', () => {
-    const newContent = document.createElement('div');
-    newContent.classList.add('new-content');
-    newContent.innerHTML = '<p>More information about bullying prevention...</p>';
-    document.querySelector('.resources').appendChild(newContent);
-  });
-  

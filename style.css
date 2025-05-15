@@ -1,107 +1,234 @@
-/* style.css */
-
+/* Global Styles */
 body {
+  font-family: 'Poppins', sans-serif; /* More modern font */
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #ffffff;
+  padding: 0;
+  background-color: #f4f4f4;
   color: #333;
-  opacity: 0;
-  animation: fadeIn 1.5s ease-in forwards;
+  line-height: 1.7; /* Improved default line height for readability */
 }
 
-/* Navbar styling */
+.container {
+  max-width: 1200px; /* Increased max-width for larger screens */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- Typography --- */
+h1 {
+  font-size: 2.5rem; /* Larger heading */
+  margin-bottom: 20px;
+  color: #2c3e50; /* Darker heading color */
+  text-align: center; /* Center headings */
+  font-weight: 600; /* Use the semibold font weight */
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2rem; /* Increased heading size */
+  margin-bottom: 18px;
+  color: #34495e;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.5rem; /* Increased heading size */
+  margin-bottom: 16px;
+  color: #2c3e50; /* A brighter accent color */
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+
+p {
+  font-size: 1.1rem; /* Slightly larger body text */
+  margin-bottom: 16px;
+}
+
+a {
+  color: #3498db; /* Default link color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+  font-weight: 500;
+}
+
+a:hover {
+  color: #2980b9; /* Darker shade on hover */
+}
+
+a:active {
+  color: #2c3e50; /* Even darker on active */
+}
+
+
+/* --- Layout & Sections --- */
 .navbar {
+  background-color: #ffeb3b; /* Yellow navbar */
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #f4b400;
-  color: #fff;
-  position: sticky;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: sticky; /* Sticky navbar */
   top: 0;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.8rem; /* Increased logo size */
+  font-weight: 700; /* Make logo bold */
+  color: #2c3e50; /* Darker logo color */
+  letter-spacing: -0.02em;
 }
 
-nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  transition: color 0.3s;
+.navbar nav {
+  display: flex;
+  gap: 1.5rem; /* Increased gap */
 }
 
-nav a:hover,
-nav a.active {
-  color: #333;
+.navbar nav a {
+  color: #2c3e50; /* Dark navbar link color */
+  font-weight: 500; /* Medium font weight for nav links */
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; /* Rounded corners for nav links */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
-/* Hero section */
+.navbar nav a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background on hover */
+  color: #2c3e50;  /* Keep the text the same color on hover */
+}
+
+.navbar nav a.active {
+  background-color: #f5d709; /* Slightly darker yellow for active */
+  color: #2c3e50;
+  font-weight: 600; /* Make active link bold */
+}
+
+
 .hero {
+  background-color: #ffffff;
+  padding: 3rem; /* Increased padding */
+  margin-bottom: 2rem;
+  border-radius: 0.75rem; /* More rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Increased margin */
 }
 
 .hero p {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 1.2rem; /* Slightly larger hero paragraph */
+  color: #444; /* Slightly darker text */
+  margin-bottom: 2rem; /* Increased margin */
 }
 
-/* Card section */
-.card {
-  background-color: #fffbea;
-  border: 2px solid #f4b400;
-  border-radius: 20px;
-  padding: 2rem;
+
+.content {
+  background-color: #ffffff;
+  padding: 3rem; /* Increased padding */
   margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem; /* More rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
 }
 
-.card h2 {
-  margin-top: 0;
-  color: #f4b400;
+.content h1{
+  text-align: left;
 }
 
-.card ul {
-  padding-left: 1.5rem;
+.content h2{
+  margin-top: 2.5rem;
+  text-align: left;
 }
 
-.card li {
-  margin-bottom: 0.5rem;
+.content h3{
+  text-align: left;
 }
 
-.card a {
-  color: #f4b400;
-  text-decoration: underline;
+
+.content ul {
+  list-style: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* Footer section */
+.content ol {
+  list-style: decimal;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content li{
+  margin-bottom: 0.75rem;
+}
+
+
 footer {
+  background-color: #2c3e50; /* Darker footer */
+  color: #ecf0f1; /* Lighter footer text */
   text-align: center;
-  padding: 1rem;
-  background-color: #f4b400;
-  color: white;
+  padding: 1.5rem; /* Increased padding */
+  margin-top: 2rem;
+  border-top: 1px solid #34495e;
 }
 
-footer p {
-  margin: 0;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) { /* Medium screens and below (tablets) */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  to {
-    opacity: 1;
+  .navbar nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .navbar nav a {
+    width: 100%; /* Make nav links take full width on small screens */
+    text-align: center;
+  }
+  .hero {
+    padding: 2rem;
+  }
+  .content {
+    padding: 2rem;
+  }
+  h1{
+    font-size: 2.2rem;
+  }
+  h2{
+    font-size: 1.75rem;
+  }
+  h3{
+    font-size: 1.25rem;
+  }
+  p{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) { /* Small screens (phones) */
+  .hero {
+    padding: 1.5rem;
+  }
+  .content {
+    padding: 1.5rem;
+  }
+  .navbar .logo{
+    font-size: 1.5rem;
+  }
+  h1{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: 1.5rem;
+  }
+  h3{
+    font-size: 1.125rem;
+  }
+  p{
+    font-size: 0.9rem;
   }
 }
